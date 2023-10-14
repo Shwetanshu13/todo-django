@@ -1,0 +1,23 @@
+{% extends "navbar.html" %}
+{% block title %}Add To-Do{% endblock title %}
+
+{% block body %}
+
+<form action="/todo/" method="post">
+    {% csrf_token %}
+    <div class="flex-col">
+        <div class="my-5 p-3 mx-auto">
+            <input type="text" placeholder="Add Your To-Do" id='newtodo' name="newtodo" class="h-10 w-full border-2 border-gray-500 bg-blue-300 rounded-lg">
+            {% comment %} <textarea name="newtodo" id="newtodo" cols="30" rows="1" class="w-full border-2 border-gray-500 bg-blue-300 rounded-lg"></textarea> {% endcomment %}
+        </div>
+        <div class="my-5 p-3 mx-auto w-1/2 flex justify-between">
+            <div class="p-3 m-3">
+                <button class="bg-red-700 text-white rounded-md p-3 border-2 border-black hover:bg-red-900">Cancel</button>
+            </div>
+            <div class="p-3 m-3">
+                <button type="submit" class="bg-green-700 text-white rounded-md p-3 border-2 border-black hover:bg-green-900">Save</button>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock body %}

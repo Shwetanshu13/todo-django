@@ -1,19 +1,19 @@
+{% load static tailwind_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% comment %} <title>Create Your Diary, Notes and To-Do List</title> {% endcomment %}
+    {% comment %} <title>Create Your todos, Notes and To-Do List</title> {% endcomment %}
     <title>{% block title %}{% endblock title %}</title>
+    {% tailwind_css %}
 </head>
 <body>
     {% comment %} {% extends "navbar.html" %} {% endcomment %}
     <nav class="bg-blue-500 text-white">
         <ul class="flex space-x-3 py-2 mx-3 items-center">
             <li class="text-lg"><a href="/">Home</a></li>
-            <li><a href="/mydiary/">My Diary</a></li>
-            <li><a href="/notes/">Notes</a></li>
-            <li><a href="/todo/">To-Do</a></li>
+            <li><a href="/todos/">My To-Do's</a></li>
         </ul>
     </nav>
 
