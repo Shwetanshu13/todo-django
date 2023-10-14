@@ -1,0 +1,33 @@
+{% extends "navbar.html" %}
+{% block title %}Your To-Dos{% endblock title %}
+{% block body %}
+    <div class="todos flex-col my-10 space-y-3">
+        {% for i in todoList %}
+        
+        <div class="todo w-1/2 h-auto p-1 bg-blue-100 rounded-lg m-auto flex items-center space-x-3">
+            <div><button class="checkbox border-gray-700 border-2 h-5 w-5 mx-3 hover:bg-white hover:border-black "></button></div>
+            <div class="todoname bg-blue-200 px-3 py-1 rounded-xl">
+                {{i.todoName}}
+            </div>
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    <div>
+        <a href="/deleteTodo/">
+            <button class="fixed bottom-0 left-0-0 rounded-full bg-red-400 text-white text-xl m-5 p-5 hover:bg-red-500 disabled:bg-red-200">
+                Delete a To-Do
+            </button>
+        </a>
+        <a href="/addTodo/">
+            <button class="fixed bottom-0 right-0 rounded-full bg-blue-400 text-white text-xl m-5 p-5 hover:bg-blue-500">
+                Add a To-Do
+            </button>
+        </a>
+    </div>
+
+{% endblock body %}
+
+        
