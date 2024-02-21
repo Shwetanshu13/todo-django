@@ -1,22 +1,32 @@
 {% extends "navbar.html" %}
 {% block title %}Your To-Dos{% endblock title %}
 {% block body %}
+<form action="/todos/" method="POST">
+    {% csrf_token %}
     <div class="todos flex-col my-10 space-y-3">
         {% for i in todoList %}
-        
+        {% if i.todoStatus %}
+            <div class="todo w-1/2 h-auto p-1 bg-blue-100 rounded-lg m-auto flex items-center space-x-3">
+                <div><button name="deltodo" id="{{i.todoName}}" class="checkbox border-gray-700 border-2 h-5 w-5 mx-3 hover:bg-white hover:border-black"></button></div>
+                <div class="todoname bg-blue-200 px-3 py-1 rounded-xl line-through">
+                    {{i.todoName}}
+                </div>
+            </div>
+        {% else %}
         <div class="todo w-1/2 h-auto p-1 bg-blue-100 rounded-lg m-auto flex items-center space-x-3">
-            <div><button class="checkbox border-gray-700 border-2 h-5 w-5 mx-3 hover:bg-white hover:border-black "></button></div>
+            <div><button name="deltodo" id="{{i.todoName}}" class="checkbox border-gray-700 border-2 h-5 w-5 mx-3 hover:bg-white hover:border-black"></button></div>
             <div class="todoname bg-blue-200 px-3 py-1 rounded-xl">
                 {{i.todoName}}
             </div>
         </div>
-
+        {% endif %}
         {% endfor %}
 
     </div>
+</form>
 
     <div>
-        <a href="/deleteTodo/">
+        <a href="/delTodo/">
             <button class="fixed bottom-0 left-0-0 rounded-full bg-red-400 text-white text-xl m-5 p-5 hover:bg-red-500 disabled:bg-red-200">
                 Delete a To-Do
             </button>
